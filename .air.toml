@@ -1,0 +1,21 @@
+# .air.toml
+root = "."
+tmp_dir = "tmp"
+
+[build]
+# Array of commands to run before each build
+pre_cmd = ["templ generate"]
+# The command to build your application, adjust as necessary
+cmd = "go build -o ./tmp/main ./cmd"
+# Include the templ generate command as a pre-build step
+bin = "tmp/main"
+include_ext = ["go", "tmpl", "html"]
+exclude_dir = ["tmp", "node_modules"]
+
+[log]
+# Adjust the logging level as needed
+level = "info"
+
+[restart]
+# Specify any additional directories you want to watch for changes
+watch_dir = ["."]

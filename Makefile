@@ -1,4 +1,6 @@
 # Makefile
+export PORT=:8080
+
 # Setup installs templ and air for development
 setup:
 	@echo "Installing templ and air..."
