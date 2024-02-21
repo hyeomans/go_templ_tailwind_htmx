@@ -4,13 +4,15 @@ tmp_dir = "tmp"
 
 [build]
 # Array of commands to run before each build
-pre_cmd = ["templ generate"]
+pre_cmd = ["templ generate", "make tailwind-build"]
 # The command to build your application, adjust as necessary
 cmd = "go build -o ./tmp/main ./cmd"
 # Include the templ generate command as a pre-build step
 bin = "tmp/main"
-include_ext = ["go", "tmpl", "html"]
+include_ext = ["go", "templ", "html"]
 exclude_dir = ["tmp", "node_modules"]
+# Exclude specific regular expressions.
+exclude_regex = ["templ\\.go"]
 
 [log]
 # Adjust the logging level as needed

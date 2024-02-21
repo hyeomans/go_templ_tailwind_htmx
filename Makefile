@@ -16,7 +16,17 @@ tailwind-setup:
 	@npx tailwindcss init
 	@echo "Tailwind CSS setup complete."
 
-# Convenience command to start the development server with air
-dev:
+
+## Development
+
+js-build:
+	@echo "Building JavaScript..."
+	@npx esbuild ./assets/js/index.js --bundle --minify --outfile=./public/js/main.js
+
+tailwind-build:
+	@echo "Building Tailwind CSS..."
+	@npx tailwindcss -i ./assets/styles/tailwind.css -o ./public/css/styles.css --minify
+
+dev: # Convenience command to start the development server with air
 	@echo "Starting the development server with air..."
 	@air
